@@ -1,48 +1,46 @@
-## Key Notes from YouTube Video Transcript:
+## Key Notes from Video Transcript: 
 
-**1. Introduction:**
+**1.  Generating Notes from YouTube Videos using Python**
 
-* The video demonstrates extracting notes from YouTube videos using Python code.
-* The goal is to create a note-taking system for research and reference.
-* Packages used: YouTube Transcript API, Google Gemini large language model, and Qub Factor database.
+* **Tools:** YouTube Transcript API, Google Gemini Large Language Model (LLM), Qdrant Vector Database.
+* **Process:** 
+    * Extract transcript using YouTube Transcript API.
+    * Format transcript into plain text.
+    * Use Gemini LLM to summarize transcript into notes.
+    * Save notes into Qdrant Vector Database.
 
-**2. Setup and Installation:**
+**2.  Setting up the Environment**
 
-* Install required packages: YouTube Transcript API and Google Gemini.
-* Import necessary modules, including Gemini API and Qub Factor database.
-* Obtain Gemini API key and set up resources.
-* Create a KB Factor database to store the notes.
+* Install required packages: YouTube Transcript API, Google Gemini LLM, Qdrant.
+* Get Gemini API key and set up model.
+* Create Qdrant database and collection.
+* Define an embedding function using Gemini.
 
-**3. Extracting Notes:**
+**3.  Generating and Saving Notes**
 
-* Define a function to embed text using Gemini.
-* Create a collection within the database to store the YouTube notes.
-* Obtain YouTube video ID and construct a prompt for Gemini to extract notes.
-* Use YouTube Transcript API to get the transcript of the video.
-* Format the transcript and save it to a temporary text file.
-* Pass the transcript and prompt to Gemini to generate notes.
-* Save the notes to another temporary text file.
+* Get video ID from YouTube video.
+* Extract transcript using YouTube Transcript API.
+* Format transcript into plain text.
+* Use Gemini LLM to generate notes from transcript using a custom prompt.
+* Save notes into Qdrant collection with video ID as reference.
 
-**4. Saving Notes to Database:**
+**4.  Searching and Retrieving Notes**
 
-* Read the notes from the temporary file.
-* Use the upsert function to insert or update the notes in the database, using the video ID as the record identifier.
-* Verify the inserted record by retrieving it from the database.
+* Query Qdrant database using search terms related to video content.
+* Use Gemini LLM to answer specific questions based on retrieved notes.
 
-**5. Searching Notes:**
+**5.  Example Scenario**
 
-* Demonstrate querying the database for specific information.
-* Use Gemini to answer questions based on the retrieved notes.
+* Searching for a beef recipe and using Gemini LLM to answer how much beef is needed.
 
-**6. Conclusion:**
+**6.  Future Improvements**
 
-* The video provides a basic framework for extracting and storing notes from YouTube videos.
-* Future improvements could include a user interface and enhanced note-taking features.
+* Create a user interface for easier interaction. 
+* Improve note generation accuracy.
+* Add features for organizing and categorizing notes.
 
-**Key Takeaways:**
+**7.  Benefits**
 
-* The video shows a practical application of using Python for research and note-taking.
-* It highlights the power of large language models for summarizing and analyzing text.
-* Vector databases provide an efficient way to store and retrieve information based on semantic understanding.
-
-**Note:** The video transcript is a simplified representation of the information presented in the video. It is highly recommended to watch the video for a comprehensive understanding of the techniques and concepts discussed.
+* Generate organized notes from long YouTube videos for future reference.
+* Search and retrieve specific information easily using Qdrant database.
+* Utilize Gemini LLM to answer questions based on saved notes.
